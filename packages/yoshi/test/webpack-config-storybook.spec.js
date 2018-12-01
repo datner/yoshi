@@ -41,4 +41,13 @@ describe('Webpack config storybook', () => {
       expect(resultConfig.resolve.extensions).to.include('.abc');
     });
   });
+
+  describe('Node lib mocks', () => {
+    it('should add all the node lib mock definitions from common config', () => {
+      expect(resultConfig.node).to.eql({
+        ...commonConfig.node,
+        net: 'empty',
+      });
+    });
+  });
 });
